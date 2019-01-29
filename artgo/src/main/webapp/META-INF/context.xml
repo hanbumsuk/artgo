@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource name="jdbc/artgo" auth="Container"
+      type="javax.sql.DataSource"
+      factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+      driverClassName="org.mariadb.jdbc.Driver"
+      url="jdbc:mariadb://localhost/mysql" username="artgo"
+      password="1234" maxActive="20" maxIdle="10" maxWaitMillis="-1"
+      removeAbandoned="true" removeAbandonedTimeout="60"
+      logAbandoned="true" />
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    
+</Context>
+
+
+
+
+
+
+

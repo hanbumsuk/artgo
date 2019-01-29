@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitcamp.artgo.board.dao.ReviewDao">
+	<insert id="writeReview" parameterType="reviewDto">
+		INSERT INTO review(comment, score, status, exno, mno, date)
+		VALUES (#{comment}, #{score}, 1, #{exno}, #{mno}, now())
+	</insert>
+
+	<select id="getReviewList" parameterType="int" resultType="reviewDto">
+		SELECT * 
+		FROM reviewlistview
+		WHERE exno = #{exno}
+		ORDER BY rno DESC
+	</select>
+	
+	<update id="modifyReview" parameterType="reviewDto">
+		UPDATE review
+		SET comment = #{comment}
+		AND score = #{score}
+		WHERE rno = #{rno}
+	</update>
+	
+	<update id="deleteReview" parameterType="int">
+		UPDATE review 
+		SET status = 0 
+		WHERE rno = #{rno}
+	</update>
+</mapper>
